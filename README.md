@@ -16,7 +16,7 @@ install_github(repo='xuexinyu11/MitoTracer')
 ```
 library(MitoTracer)
 ```
->**Step 1**: Read all files of mitochondrial variants (*.MT_variants.txt) called from MERCI-mtSNP into R environment. Here we prepared an example bulk ATAC-seq data folder, there are 12 sub-folders. (Users can find the dataset of example files in https://github.com/xuexinyu11/Example_data/TF1_bulkATAC)
+>**Step 1**: Read all files of mitochondrial variants (*.MT_variants.txt) called from MERCI-mtSNP (https://github.com/shyhihihi/MERCI) into R environment. Here we prepared an example bulk ATAC-seq data folder, there are 12 sub-folders. (Users can find the dataset of example files in https://github.com/xuexinyu11/Example_data/TF1_bulkATAC)
 >To ensure that all mitochondrial variants are read once, it is necessary to provide the **full path** to the example data folder on your computer.
 
 >The current example data is bulk ATAC-seq, we use function 'read.MT.variant.files.bulkATACseq' to read file. If your data is 10X scRNA-seq or Smart -seq2, please use 'read.MT.variant.files.10XscRNASeq' or 'read.MT.variant.files.SmartSeq2' to read mitochondrial variant files from the folder.

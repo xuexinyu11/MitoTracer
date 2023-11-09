@@ -31,6 +31,8 @@ example.data.MT_variants.detected = example.data.MT_variants[example.data.MT_var
 example.data.MT_variants.detected.matrix = MTmutMatrix_refined(example.data.MT_variants.detected);
 ```
 >**Step 3**: Calculate the distance between top two Gaussian peaks diessected by Dirichlet Process. If the cell count is below 100, we recommend using 2000 iterations; otherwise, 1000 iterations should suffice. The default interation is 2000.
+
+>This process can be time-consuming, especially when dealing with numerous mitochondrial variants. Consider dividing your matrix into smaller sub-matrices and running the code separately to expedite the execution.
 ```
 example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT_variants.detected.matrix[1:10,], iteration = 2000);
 ```
@@ -42,7 +44,7 @@ example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT
 
 >The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5.
 ```
-example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,dis_cutoff = 0.02, sample_type = 1 , size = 5 )
+example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,  dis_cutoff = 0.02, sample_type = 1 , size = 5 )
 ```
 
 

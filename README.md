@@ -38,7 +38,9 @@ example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT
 
 >The parameter 'dis_cutoff' filters instances where the top two peaks exhibit a considerable spatial separation, with a default threshold at 0.02.
 
->The parameter 'sample_type' assumes the role of an indicator for specifying cellular lineage information. If the lineages in question originate from disparate cell lines or patient samples, it is incumbent upon the user to designate 'sample_type' as 1. Conversely, in instances where the lineages are generated through sequential culturing, the parameter 'sample_type' should be assigned a value of 2. 
+>The parameter 'sample_type' assumes the role of an indicator for specifying cellular lineage information. If the lineages in question originate from disparate cell lines or patient samples, it is incumbent upon the user to designate 'sample_type' as 1. Conversely, in instances where the lineages are generated through sequential culturing, the parameter 'sample_type' should be assigned a value of 2. The default value is 1.
+
+>The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5.
 ```
 example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,dis_cutoff = 0.02, sample_type = 1 , size = 5 )
 ```

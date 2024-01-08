@@ -12,6 +12,16 @@
 
 
 MT.feature.selection <- function(distance_list, MT_variants_detected_matrix, dis_cutoff = 0.02, sample_type = 1 , size = 5 ){
+
+  tmp.na = which(is.na(distance_list));
+  tmp.distance = distance_list[-tmp.na];
+  distance_list = tmp.distance;
+
+  tmp.variants = names(distance_list)
+  tmp.matrix = MT_variants_detected_matrix[tmp.variants,]
+  MT_variants_detected_matrix = tmp.matrix;
+
+
 	tmp.selected.MT.variants = names(distance_list[distance_list > dis_cutoff]);
 	tmp.selected.MT.variants.matrix = MT_variants_detected_matrix[tmp.selected.MT.variants,];
 

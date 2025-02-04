@@ -2,7 +2,7 @@
 MitoTracer facilitates the identification of informative mitochondrial mutations for precise lineage reconstruction
 >This is a README file of the R package MitoTracer. In our Paper, MitoTracer facilitates the identification of informative mitochondrial mutations for precise lineage reconstruction, we develop an open-source computational algorithm called “MitoTracer”, which accurately identified clonally informative MT mutations and inferred evolutionary lineage from scRNA-seq or scATAC-seq samples. We benchmarked MitoTracer using the ground-truth experimental lineage sequencing data and demonstrated its superior performance over the existing methods measured by high sensitivity and specificity. MitoTracer is compatible with multiple single cell sequencing platforms.
 # Configuration
-MitoTracer version 0.1.0 is performed in R ver 4.2.3.
+MitoTracer version 0.1.1 is performed in R ver 4.2.3.
 flexmix ver 2.3-19, dirichletprocess ver 0.4.2, lattice ver 0.21-8
 # Install MitoTracer package
 To install our package, you may simply execute the following codes.
@@ -34,17 +34,17 @@ example.data.MT_variants.detected.matrix = MTmutMatrix_refined(example.data.MT_v
 
 >This process can be time-consuming, especially when dealing with numerous mitochondrial variants. Consider dividing your matrix into smaller sub-matrices and running the code separately to expedite the execution.
 ```
-example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT_variants.detected.matrix[1:10,], iteration = 2000);
+example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT_variants.detected.matrix[1:30,], iteration = 2000);
 ```
 >**Step 4**: Select the informative mitochondrial variants. In this step, we should specify some cutoffs to select the informative mitochondrial variants.
 
->The parameter 'dis_cutoff' filters instances where the top two peaks exhibit a considerable spatial separation, with a default threshold at 0.02.
+>The parameter 'dis_cutoff' filters instances where the top two peaks exhibit a considerable spatial separation, with a default threshold at 0.05. For this example, we're using 30 MT mutations to go through the pipeline. Since the number of MT mutations is limited, we've set the cutoff to zero and applied no filtration to these mutations.
 
 >The parameter 'sample_type' assumes the role of an indicator for specifying cellular lineage information. If the lineages in question originate from disparate cell lines or patient samples, it is incumbent upon the user to designate 'sample_type' as 1. Conversely, in instances where the lineages are generated through sequential culturing, the parameter 'sample_type' should be assigned a value of 2. The default value is 1.
 
->The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5.
+>The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5. 
 ```
-example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,  dis_cutoff = 0.02, sample_type = 1 , size = 5 )
+example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,  dis_cutoff = 0, sample_type = 1 , size = 5 )
 ```
 
 

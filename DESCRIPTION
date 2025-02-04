@@ -2,13 +2,13 @@ Package: MitoTracer
 Type: Package
 Title: MitoTracer facilitates the identification of informative
         mitochondrial mutations for precise lineage reconstruction
-Version: 0.1.0
+Version: 0.1.1
 Author: Xuexin Yu
 Maintainer: The package maintainer <yux1@chop.edu>
 Description: Mitochondrial (MT) mutations serve as natural genetic markers for inferring clonal relationships using single-cell sequencing data. However, the fundamental challenge of MT mutation-based lineage tracing is automated identification of informative MT mutations. Here, we introduced an open-source computational algorithm called “MitoTracer”, which accurately identified clonally informative MT mutations and inferred evolutionary lineage from scRNA-seq or scATAC-seq samples. We benchmarked MitoTracer using the ground-truth experimental lineage sequencing data and demonstrated its superior performance over the existing methods measured by high sensitivity and specificity. MitoTracer is compatible with multiple single cell sequencing platforms.
-Depends: flexmix, dirichletprocess, lattice
+Depends: R (>= 3.5.0), flexmix, dirichletprocess, lattice
 License: CHOP
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2023-11-07 21:00:39 UTC; yux1
+Packaged: 2025-02-04 03:47:53 UTC; yux1

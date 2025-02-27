@@ -44,7 +44,7 @@ example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT
 
 >The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5. 
 ```
-example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance,  dis_cutoff = 0, sample_type = 1 , size = 5 )
+example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance, example.data.MT_variants.detected.matrix， dis_cutoff = 0, sample_type = 1 , size = 5 )
 ```
 
 

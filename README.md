@@ -34,17 +34,17 @@ example.data.MT_variants.detected.matrix = MTmutMatrix_refined(example.data.MT_v
 
 >This process can be time-consuming, especially when dealing with numerous mitochondrial variants. Consider dividing your matrix into smaller sub-matrices and running the code separately to expedite the execution.
 ```
-example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT_variants.detected.matrix[1:30,], iteration = 2000);
+example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT_variants.detected.matrix[1:50,], iteration = 2000);
 ```
 >**Step 4**: Select the informative mitochondrial variants. In this step, we should specify some cutoffs to select the informative mitochondrial variants.
 
->The parameter 'dis_cutoff' filters instances where the top two peaks exhibit a considerable spatial separation, with a default threshold at 0.05. For this example, we're using 30 MT mutations to go through the pipeline. Since the number of MT mutations is limited, we've set the cutoff to zero and applied no filtration to these mutations.
+>The parameter 'dis_cutoff' filters instances where the top two peaks exhibit a considerable spatial separation, with a default threshold at 0.05. For this example, we're using 50 MT mutations to go through the pipeline. Since the number of MT mutations is limited, we've set the cutoff to zero and applied no filtration to these mutations.
 
 >The parameter 'sample_type' assumes the role of an indicator for specifying cellular lineage information. If the lineages in question originate from disparate cell lines or patient samples, it is incumbent upon the user to designate 'sample_type' as 1. Conversely, in instances where the lineages are generated through sequential culturing, the parameter 'sample_type' should be assigned a value of 2. The default value is 1.
 
 >The parameter 'size' is specify the distance of adjacent mutation sites, we recommend to remove all adjacent mutations within 'size' sites, the default value is 5. 
 ```
-example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance, example.data.MT_variants.detected.matrix, dis_cutoff = 0, sample_type = 1 , size = 5 )
+example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance, example.data.MT_variants.detected.matrix, dis_cutoff = 0, sample_type = 2 , size = 5 )
 ```
 
 

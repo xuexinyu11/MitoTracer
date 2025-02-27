@@ -10,7 +10,7 @@
 #' @return The informative MT variants
 #' @export
 
-function(distance_list, MT_variants_detected_matrix, dis_cutoff = 0.001, sample_type = 1 , size = 5 ){
+MT.feature.selection <- function(distance_list, MT_variants_detected_matrix, dis_cutoff = 0.001, sample_type = 1 , size = 5 ){
 
   tmp.na = which(is.na(distance_list));
   if(length(tmp.na)!=0){

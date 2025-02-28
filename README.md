@@ -46,6 +46,17 @@ example.data.MT_variants.detected.distance = MT.feature.distance(example.data.MT
 ```
 example.data.MT_variants_informative = MT.feature.selection(example.data.MT_variants.detected.distance, example.data.MT_variants.detected.matrix, dis_cutoff = 0, sample_type = 2 , size = 5 )
 ```
+>**Step 5**: Contruct the lineage tree. In this step, we use the pheatmap function to build the lineage tree by the informative mitochondrial variants.
+
+>We applied various distance formulas to construct the lineage tree for both the gold-standard dataset and the actual single-cell datasets, and the performance remained consistent and robust in both cases. Therefore, as long as the selection of informative MT mutations is precise and reliable, the choice of distance matrix for clustering has a minimal impact on lineage construction, with only a slight effect. In the end, we chose to use the pheatmap function to build the lineage tree.
+```
+library(pheatmap)
+clone_id = c("A9","B11","C7","D3","G11","B3","B5","B9","C4","C10","D2","C9")
+names(clone_id) = colnames(example.data.MT_variants.detected.matrix)
+example.annotation_col = data.frame(Clone = clone_id)
+pheatmap(example.data.MT_variants.detected.matrix[example.data.MT_variants_informative,],annotation_col = example.annotation_col)
+
+```
 
 
 
